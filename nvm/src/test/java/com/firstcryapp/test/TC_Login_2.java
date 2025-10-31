@@ -47,8 +47,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 	        
 	        System.out.println("Skip Button was clicked");
 	        
-	        driver.findElementById("fc.admin.fcexpressadmin:id/ivClosePermisionDialog").click();
-	        System.out.println("The permission for location service deny button was clicked");
+	        //driver.findElementById("fc.admin.fcexpressadmin:id/ivClosePermisionDialog").click();
+	        //System.out.println("The permission for location service deny button was clicked");
 
 	      
 
