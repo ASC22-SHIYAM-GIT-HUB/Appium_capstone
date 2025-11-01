@@ -51,7 +51,7 @@
       <version>20240303</version>
     </dependency>
 
-    <!-- ✅ Lombok -->
+    <!-- Lombok -->
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
@@ -62,7 +62,7 @@
 
   <build>
     <plugins>
-      <!-- Compiler plugin with --add-exports to fix Lombok + JDK 11+ -->
+      <!-- Compiler plugin with add-exports for Lombok + JDK 11+ -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
