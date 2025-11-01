@@ -8,55 +8,61 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>AppiumSeleniumProject</name>
 
-   <dependencies>
-    
-    <!-- ✅ Use Selenium 3.141.59 for Appium compatibility -->
+  <dependencies>
+    <!-- Selenium -->
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
       <version>3.141.59</version>
     </dependency>
 
-    <!-- ✅ Appium Java Client compatible with Selenium 3 -->
+    <!-- Appium Java Client -->
     <dependency>
       <groupId>io.appium</groupId>
       <artifactId>java-client</artifactId>
       <version>7.6.0</version>
     </dependency>
 
-    <!-- ✅ TestNG -->
+    <!-- TestNG -->
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
       <version>7.10.2</version>
-      <scope>test</scope>
     </dependency>
 
-    <!-- ✅ Extent Reports for reporting -->
+    <!-- Extent Reports -->
     <dependency>
       <groupId>com.aventstack</groupId>
       <artifactId>extentreports</artifactId>
       <version>5.0.9</version>
     </dependency>
-    
+
+    <!-- Commons IO -->
     <dependency>
-    <groupId>commons-io</groupId>
-    <artifactId>commons-io</artifactId>
-    <version>2.11.0</version>
-</dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.11.0</version>
+    </dependency>
 
-
-    <!-- ✅ JSON for desired capabilities -->
+    <!-- JSON -->
     <dependency>
       <groupId>org.json</groupId>
       <artifactId>json</artifactId>
       <version>20240303</version>
     </dependency>
 
+    <!-- ✅ Lombok -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.30</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 
   <build>
     <plugins>
+      <!-- Compiler plugin with --add-exports to fix Lombok + JDK 11+ -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -64,9 +70,15 @@
         <configuration>
           <source>11</source>
           <target>11</target>
+          <fork>true</fork>
+          <compilerArgs>
+            <arg>--add-exports</arg>
+            <arg>jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED</arg>
+          </compilerArgs>
         </configuration>
       </plugin>
 
+      <!-- Surefire plugin for TestNG -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
@@ -74,5 +86,4 @@
       </plugin>
     </plugins>
   </build>
-
 </project>
